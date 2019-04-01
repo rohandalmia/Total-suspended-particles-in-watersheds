@@ -69,7 +69,7 @@ server <- function(input, output) {
         
         pal <- colorNumeric(c("green",  "orange", "red"), 0:255)
         
-        leaflet(data1) %>% addTiles() %>%
+        leaflet(data2[data2[,input$var] > input$threshold[1],]) %>% addTiles() %>%
             addAwesomeMarkers(~ Long, ~ Lat , icon=icons, label = ~ `Watershed/Monitoring Site Location`) %>% 
             addPolylines(data = data2[data2[,input$var] > input$threshold[1],], lng = ~ Long, lat = ~ Lat) %>% 
             addLegend(position = "bottomright", pal = pal, values = c(0,75,175,250)) 
