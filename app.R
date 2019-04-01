@@ -14,7 +14,7 @@ counties = map_data("county")
 
 mn_county = subset(counties, region == "minnesota")
 
-data1 = as.data.frame(read_xlsx('MUDAC_data_Problem1.xlsx',sheet = 'data',skip = 2)[1:50,])
+data1 = as.data.frame(read_xlsx('data.xlsx',sheet = 'data',skip = 2)[1:50,])
 
 data2 = data1 %>% 
     group_by(Long, Lat) %>% 
